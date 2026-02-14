@@ -5,127 +5,6 @@ description: Plataforma de regularización masiva. Tramitamos tu Arraigo o Nacio
 permalink: /
 ---
 
-<style>
-    /* BRAND COLORS - MODERNA & URGENTE */
-    :root {
-        --digital-blue: #2563eb; /* Tech Blue */
-        --gov-blue: #1e3a8a;     /* Official Dark Blue */
-        --alert-red: #dc2626;    /* Urgency Red */
-        --success-green: #16a34a;
-        --bg-light: #f8fafc;
-    }
-
-    /* 1. HERO SECTION: DIGITAL & FAST */
-    .hero-digital {
-        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-        color: white;
-        padding: 5rem 1rem 7rem;
-        text-align: center;
-        border-bottom: 4px solid var(--digital-blue);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    /* "Tech Grid" Background Effect */
-    .hero-digital::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-        background-size: 30px 30px;
-        z-index: 0;
-    }
-
-    .hero-content { position: relative; z-index: 1; }
-
-    .brand-pill {
-        background: rgba(37, 99, 235, 0.2);
-        border: 1px solid var(--digital-blue);
-        color: #60a5fa;
-        padding: 0.5rem 1.5rem;
-        border-radius: 50px;
-        font-family: monospace; /* Digital feel */
-        text-transform: uppercase;
-        font-weight: 700;
-        display: inline-block;
-        margin-bottom: 1.5rem;
-    }
-
-    .hero-h1 {
-        font-family: 'Oswald', sans-serif;
-        font-size: clamp(2.5rem, 5vw, 4.5rem);
-        line-height: 1.1;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: -1px;
-    }
-
-    /* 2. THE THREE DIGITAL PATHS */
-    .path-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: -4rem auto 4rem;
-        max-width: 1200px;
-        padding: 0 1.5rem;
-        position: relative;
-        z-index: 10;
-    }
-
-    .path-card {
-        background: white;
-        padding: 2.5rem;
-        border-radius: 12px;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        border: 1px solid #e2e8f0;
-        transition: transform 0.2s;
-    }
-    .path-card:hover { transform: translateY(-5px); border-color: var(--digital-blue); }
-
-    .path-icon {
-        background: var(--bg-light);
-        width: 60px; height: 60px;
-        border-radius: 12px;
-        display: flex; align-items: center; justify-content: center;
-        margin-bottom: 1.5rem;
-        color: var(--digital-blue);
-    }
-
-    /* 3. PRICING / ACTION BOX */
-    .action-box {
-        background: white;
-        border: 2px solid var(--digital-blue);
-        border-radius: 16px;
-        padding: 3rem 2rem;
-        text-align: center;
-        max-width: 500px;
-        margin: 0 auto;
-        box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
-    }
-
-    .btn-whatsapp {
-        background: #25D366;
-        color: white;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        margin-top: 1.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-    .btn-whatsapp:hover { background: #128c7e; }
-
-    /* CHECKLIST STYLE */
-    .digital-list { list-style: none; padding: 0; text-align: left; margin: 2rem 0; }
-    .digital-list li { margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px; color: #475569; }
-    .digital-list li svg { flex-shrink: 0; color: var(--success-green); margin-top: 3px; }
-
-</style>
-
 <div class="hero-digital">
     <div class="container hero-content">
         <div class="brand-pill">Sistema Online 2026</div>
@@ -134,7 +13,7 @@ permalink: /
             <span style="color: #60a5fa;">Empieza Aquí.</span>
         </h1>
         <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.9;">
-            <b>Regularizate.digital</b> conecta tu caso directamente con la Administración.
+            <b>Regularizate.digital</b> conecta tu caso directamente con la Administración.<br>
             Sin colas. Sin citas previas imposibles. Con garantía legal.
         </p>
     </div>
@@ -143,6 +22,7 @@ permalink: /
 <section style="background: var(--bg-light); padding-bottom: 5rem;">
     <div class="container">
         <div class="path-grid">
+            
             <div class="path-card">
                 <div class="path-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-4h8v4"/></svg>
