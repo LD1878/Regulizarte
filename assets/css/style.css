@@ -1,0 +1,252 @@
+/* ==========================================================
+   REGULARIZATE DIGITAL: Master Style Sheet
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   1. VARIABLES & SETUP (UPDATED FOR TRUST/GOV THEME)
+   ---------------------------------------------------------- */
+:root {
+  /* BRAND COLORS (Blue = Trust, Red = Urgency) */
+  --brand-blue: #2563eb;       /* Primary Action Color */
+  --brand-dark: #1e3a8a;       /* Government/Official Blue */
+  --brand-alert: #dc2626;      /* Urgency/Deadline Red */
+  --brand-success: #16a34a;    /* WhatsApp/Success Green */
+  
+  /* DEFAULT THEME */
+  --bg-primary: #f8fafc;       /* Light Blue-Grey Background */
+  --bg-secondary: #ffffff;
+  --text-primary: #1e293b;     /* Dark Blue-Grey Text (Softer than black) */
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  
+  /* SPACING & UTILS */
+  --sp-radius: 8px;            /* Slightly more rounded for modern feel */
+  --sp-font-heavy: 'Oswald', sans-serif;
+  --sp-font-body: 'Inter', sans-serif; /* CHANGED: Modern Tech Font */
+  --sp-max-width: 1200px;
+  
+  /* SHADOWS */
+  --elev-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --elev-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --elev-3: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------------------------------------------------------
+   2. BASE STYLES & TEXTURE
+   ---------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--sp-font-body);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 16px;
+  
+  /* TEXTURE: Subtle Digital Grid */
+  background-image: 
+      linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--sp-font-heavy);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--brand-dark);
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 2.25rem;
+  border-bottom: 0; /* Removed the gold line for a cleaner look */
+  margin-top: 3rem;
+  color: var(--brand-dark);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--brand-blue);
+  margin-top: 0;
+}
+
+p { margin-bottom: 1rem; color: var(--text-muted); }
+a { color: var(--brand-blue); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--brand-dark); }
+
+.center { text-align: center; }
+.container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-light);
+  margin: 3rem 0;
+}
+
+/* ----------------------------------------------------------
+   3. BUTTONS (Standard & Variants)
+   ---------------------------------------------------------- */
+.btn {
+  background: var(--brand-blue);
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 0.85rem 2rem;
+  border-radius: var(--sp-radius);
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: var(--sp-font-heavy);
+  box-shadow: var(--elev-1);
+}
+
+.btn:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--elev-2);
+}
+
+.btn-outline {
+    background-color: transparent !important;
+    color: var(--brand-blue) !important;
+    border: 2px solid var(--brand-blue) !important;
+    box-shadow: none !important;
+}
+.btn-outline:hover {
+    background-color: var(--brand-blue) !important;
+    color: #ffffff !important;
+}
+
+/* ----------------------------------------------------------
+   4. LAYOUT COMPONENTS
+   ---------------------------------------------------------- */
+   
+/* HERO DIGITAL (From the Index) */
+.hero-digital {
+    background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%);
+    color: white;
+    padding: 6rem 1rem 8rem; /* Extra padding bottom for overlap */
+    text-align: center;
+    border-bottom: 5px solid var(--brand-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-digital h1 { color: white; }
+.hero-digital p { color: #cbd5e1; }
+
+.brand-pill {
+    background: rgba(37, 99, 235, 0.2);
+    border: 1px solid var(--brand-blue);
+    color: #60a5fa;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-family: monospace;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+/* CARDS & GRIDS */
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: -5rem auto 4rem; /* Negative margin pulls it up into Hero */
+    max-width: 1200px;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.path-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--elev-2);
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s;
+}
+.path-card:hover { transform: translateY(-5px); border-color: var(--brand-blue); }
+
+.path-icon {
+    background: var(--bg-primary);
+    width: 60px; height: 60px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--brand-blue);
+}
+
+/* ACTION BOX */
+.action-box {
+    background: white;
+    border: 2px solid var(--brand-blue);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: var(--elev-3);
+}
+
+.btn-whatsapp {
+    background: var(--brand-success);
+    color: white !important;
+    font-family: var(--sp-font-heavy);
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 1.5rem;
+    box-shadow: var(--elev-1);
+    transition: 0.3s;
+}
+.btn-whatsapp:hover { background: #15803d; transform: scale(1.02); }
+
+/* CHECKLISTS */
+.digital-list { list-style: none; padding: 0; text-align: left; margin: 2rem 0; }
+.digital-list li { margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px; color: var(--text-primary); }
+.digital-list li svg { flex-shrink: 0; color: var(--brand-success); margin-top: 3px; }
+
+/* ----------------------------------------------------------
+   5. FOOTER & UTILS
+   ---------------------------------------------------------- */
+.site-footer {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 4rem 0 2rem;
+  margin-top: 5rem;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero-digital { padding-bottom: 4rem; }
+    .path-grid { margin-top: -2rem; }
+}
