@@ -5,4 +5,4 @@ description: >-
   Trámites digitales, rápidos y sin cita previa.
 baseurl: ""
 url: "https://www.regularizate.digital" 
-permalink: 
+permalink: /:title/
