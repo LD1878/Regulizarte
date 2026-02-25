@@ -98,6 +98,62 @@ h3 {
 
 p {
   margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--brand-dark);
+}
+
+/* ----------------------------------------------------------
+   3. TYPOGRAPHY SYSTEM (PROFESSIONAL HIERARCHY)
+   ---------------------------------------------------------- */
+.hero-h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--sp-font-heavy);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  color: var(--text-muted);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: white;
+  border-radius: var(--sp-radius-xl);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: var(--elev-2);
+  transition: var(--transition);
+}
   color: var(--text-muted);
 }
 
@@ -259,7 +315,7 @@ hr {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin: -5rem auto 4rem; /* Negative margin pulls it up into Hero */
+    margin: 0 auto 4rem;
     max-width: 1200px;
     padding: 0 1.5rem;
     position: relative;
@@ -269,12 +325,18 @@ hr {
 .path-card {
     background: white;
     padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: var(--elev-2);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
     border: 1px solid var(--border-light);
-    transition: transform 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
 }
-.path-card:hover { transform: translateY(-5px); border-color: var(--brand-blue); }
+.path-card:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--brand-blue); 
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.15);
+}
 
 .path-icon {
     background: var(--bg-primary);
@@ -290,11 +352,13 @@ hr {
     background: white;
     border: 2px solid var(--brand-blue);
     border-radius: 16px;
-    padding: 3rem 2rem;
+    padding: 3.5rem 2.5rem;
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
     box-shadow: var(--elev-3);
+    position: relative;
+    z-index: 1;
 }
 
 .btn-whatsapp {
