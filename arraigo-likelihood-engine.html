@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="Calcula tu probabilidad de obtener Arraigo Social o Formación en España en 3 preguntas. Estimación preliminar, transparente y confiable.">
+    <meta name="keywords" content="Arraigo Social, Arraigo Formación, Regularización, Probabilidad, Quiz">
+    <title>Success Likelihood Engine - ¿Cuáles son tus oportunidades?</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="¿Cuáles son tus oportunidades? - Arraigo Social/Formación">
+    <meta property="og:description" content="Descubre tu probabilidad estimada de obtener residencia en España en 3 preguntas">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #1e293b;
+        }
+
+        /* ===== CONTAINER & LAYOUT ===== */
+        .likelihood-engine {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.1);
+            overflow: hidden;
+        }
+
+        .engine-content {
+            padding: 40px 32px;
+        }
+
+        @media (max-width: 640px) {
+            .engine-content {
+                padding: 32px 24px;
+            }
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar-container {
+            margin-bottom: 32px;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        /* ===== PROGRESS DOTS ===== */
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: all 0.4s ease;
+        }
+
+        .dot.active {
+            background: #2563eb;
+            transform: scale(1.2);
+            animation: pulse 0.6s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.6; }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1.2); }
+        }
+
+        /* ===== SCREEN SECTIONS ===== */
+        .screen {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .screen.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== START SCREEN ===== */
+        .start-screen-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .start-screen-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .start-screen-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .start-screen-subheading {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .trust-note {
+            background: #eff6ff;
+            border-left: 4px solid #60a5fa;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #1e40af;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        /* ===== QUESTION SCREEN ===== */
+        .question-header {
+            margin-bottom: 28px;
+        }
+
+        .question-number {
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #1e3a8a;
+            line-height: 1.4;
+        }
+
+        /* ===== ANSWER OPTIONS ===== */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .option-btn:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+            transform: translateX(4px);
+        }
+
+        .option-btn:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .option-btn.selected {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .option-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ===== RESULT SCREEN ===== */
+        .result-screen {
+            text-align: center;
+        }
+
+        .result-circle-container {
+            margin: 32px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .result-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .result-svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .result-circle-bg {
+            fill: none;
+            stroke: #e2e8f0;
+            stroke-width: 8;
+        }
+
+        .result-circle-progress {
+            fill: none;
+            stroke: url(#gradient);
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-dasharray: 565;
+            stroke-dashoffset: 565;
+            transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: drawCircle 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes drawCircle {
+            from {
+                stroke-dashoffset: 565;
+            }
+            to {
+                stroke-dashoffset: var(--offset, 0);
+            }
+        }
+
+        .result-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .result-percentage-value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #1e3a8a;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .result-percentage-label {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-message {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin: 28px 0 20px 0;
+            line-height: 1.5;
+        }
+
+        .result-subtext {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        /* ===== DISCLAIMERS ===== */
+        .disclaimer-box {
+            background: #fef2f2;
+            border-left: 4px solid #f87171;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #7f1d1d;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .disclaimer-box.accent {
+            background: #eff6ff;
+            border-left-color: #60a5fa;
+            color: #1e40af;
+        }
+
+        /* ===== EMAIL CAPTURE ===== */
+        .email-capture {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .email-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', system-ui, sans-serif;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background: #f0f9ff;
+        }
+
+        .email-input::placeholder {
+            color: #cbd5e1;
+        }
+
+        .email-error {
+            color: #dc2626;
+            font-size: 13px;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #334155;
+            margin-top: 12px;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        /* ===== THANK YOU SCREEN ===== */
+        .thank-you-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: block;
+            animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .thank-you-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .thank-you-text {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .cta-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ===== CONFETTI ===== */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .confetti.falling {
+            animation: confettiFall 3s ease-in forwards;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .start-screen-heading {
+                font-size: 28px;
+            }
+
+            .question-text {
+                font-size: 20px;
+            }
+
+            .result-percentage-value {
+                font-size: 48px;
+            }
+
+            .result-circle {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            }
+
+            .likelihood-engine {
+                background: #1e293b;
+                color: #f1f5f9;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            }
+
+            .start-screen-heading,
+            .question-text,
+            .result-message,
+            .thank-you-heading {
+                color: #60a5fa;
+            }
+
+            .progress-bar-container {
+                background: #334155;
+            }
+
+            .option-btn {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9;
+            }
+
+            .option-btn:hover {
+                background: #1e40af;
+                border-color: #2563eb;
+            }
+
+            .trust-note {
+                background: #1e3a8a;
+                border-left-color: #2563eb;
+                color: #bfdbfe;
+            }
+
+            .email-input {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9;
+            }
+
+            .email-input::placeholder {
+                color: #94a3b8;
+            }
+
+            .email-input:focus {
+                background: #1e40af;
+                border-color: #2563eb;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== LIKELIHOOD ENGINE CONTAINER ===== -->
+    <div class="likelihood-engine">
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="engine-content">
+            <!-- Progress Dots -->
+            <div class="progress-dots" id="progressDots"></div>
+
+            <!-- ===== START SCREEN ===== -->
+            <div class="screen active" id="startScreen">
+                <div class="start-screen-header">
+                    <div class="start-screen-icon">🎓</div>
+                    <h1 class="start-screen-heading">¿Cuáles son tus oportunidades?</h1>
+                    <p class="start-screen-subheading">
+                        Descubre tu probabilidad estimada de obtener la residencia en España mediante el Arraigo Social o Arraigo por Formación.
+                    </p>
+                </div>
+
+                <div class="trust-note">
+                    <strong>✓ Rápido: </strong> Solo 3 preguntas<br>
+                    <strong>✓ Privado: </strong> Tus respuestas no se almacenan<br>
+                    <strong>✓ Transparente: </strong> Estimación preliminar, no una garantía
+                </div>
+
+                <button class="btn" id="startBtn" onclick="startQuiz()">
+                    Comenzar Quiz
+                </button>
+            </div>
+
+            <!-- ===== QUESTION SCREEN ===== -->
+            <div class="screen" id="questionScreen">
+                <div class="question-header">
+                    <div class="question-number" id="questionNumber"></div>
+                    <h2 class="question-text" id="questionText"></h2>
+                </div>
+                <div class="options-container" id="optionsContainer"></div>
+            </div>
+
+            <!-- ===== RESULT SCREEN ===== -->
+            <div class="screen" id="resultScreen">
+                <div class="result-circle-container">
+                    <div class="result-circle">
+                        <svg class="result-svg" viewBox="0 0 200 200">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="result-circle-bg" cx="100" cy="100" r="90"></circle>
+                            <circle class="result-circle-progress" id="resultCircleProgress" cx="100" cy="100" r="90"></circle>
+                        </svg>
+                        <div class="result-percentage">
+                            <div class="result-percentage-value" id="percentageValue">0%</div>
+                            <div class="result-percentage-label">Probabilidad</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="result-message" id="resultMessage"></h2>
+                <p class="result-subtext" id="resultSubtext"></p>
+
+                <div id="disclaimersContainer"></div>
+
+                <!-- EMAIL CAPTURE -->
+                <div class="email-capture" id="emailCapture">
+                    <label class="email-label">Recibe tu plan personalizado:</label>
+                    <div class="email-error" id="emailError"></div>
+                    <input
+                        type="email"
+                        class="email-input"
+                        id="emailInput"
+                        placeholder="tu@email.com"
+                        aria-label="Tu correo electrónico"
+                    />
+                    <button class="btn" id="submitEmailBtn" onclick="submitEmail()">
+                        Obtener mi plan personalizado
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetQuiz()">
+                        Volver al inicio
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== THANK YOU SCREEN ===== -->
+            <div class="screen" id="thankYouScreen">
+                <div style="text-align: center;">
+                    <div class="thank-you-icon">✨</div>
+                    <h2 class="thank-you-heading">¡Gracias!</h2>
+                    <p class="thank-you-text">
+                        Hemos enviado tu plan personalizado a tu email. <br><br>
+                        Un especialista en inmigración se pondrá en contacto contigo pronto para analizar tu caso de forma detallada.
+                    </p>
+                    <a href="https://calendly.com/regularizarte" class="cta-link" target="_blank" rel="noopener">
+                        Agendar consulta
+                    </a>
+                    <br><br>
+                    <button class="btn btn-secondary" onclick="resetQuiz()">
+                        Volver al inicio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== QUIZ DATA =====
+        const quizData = [
+            {
+                id: 'residencyTime',
+                question: '¿Cuánto tiempo llevas viviendo en España de forma continuada?',
+                options: [
+                    { text: 'Menos de 2 años', value: 'less-2' },
+                    { text: '2 años o más', value: 'more-2' }
+                ]
+            },
+            {
+                id: 'employmentContract',
+                question: '¿Tienes una oferta de trabajo (contrato) firmada?',
+                options: [
+                    { text: 'Sí, tengo contrato', value: 'yes' },
+                    { text: 'No tengo contrato', value: 'no' }
+                ]
+            },
+            {
+                id: 'criminalRecord',
+                question: '¿Tienes antecedentes penales en España?',
+                options: [
+                    { text: 'Sí', value: 'yes' },
+                    { text: 'No', value: 'no' }
+                ]
+            }
+        ];
+
+        // ===== STATE MANAGEMENT =====
+        let currentQuestion = 0;
+        let answers = {};
+        let score = 0;
+
+        // ===== INITIALIZE PROGRESS DOTS =====
+        function initializeProgressDots() {
+            const dotsContainer = document.getElementById('progressDots');
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < quizData.length; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.setAttribute('aria-label', `Question ${i + 1}`);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // ===== UPDATE PROGRESS =====
+        function updateProgress() {
+            const progressBar = document.querySelector('.progress-bar');
+            const percentage = ((currentQuestion) / quizData.length) * 100;
+            progressBar.style.width = percentage + '%';
+
+            // Update dots
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index < currentQuestion) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // ===== SHOW SCREEN =====
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        // ===== START QUIZ =====
+        function startQuiz() {
+            currentQuestion = 0;
+            answers = {};
+            score = 0;
+            showQuestion();
+            updateProgress();
+        }
+
+        // ===== SHOW QUESTION =====
+        function showQuestion() {
+            if (currentQuestion >= quizData.length) {
+                calculateScore();
+                showResult();
+                return;
+            }
+
+            const question = quizData[currentQuestion];
+            document.getElementById('questionNumber').textContent = `Pregunta ${currentQuestion + 1} de ${quizData.length}`;
+            document.getElementById('questionText').textContent = question.question;
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.textContent = option.text;
+                button.setAttribute('data-value', option.value);
+                button.onclick = () => selectAnswer(option.value, button);
+                optionsContainer.appendChild(button);
+            });
+
+            showScreen('questionScreen');
+            updateProgress();
+        }
+
+        // ===== SELECT ANSWER =====
+        function selectAnswer(value, button) {
+            // Update button state
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            button.classList.add('selected');
+
+            // Store answer
+            const question = quizData[currentQuestion];
+            answers[question.id] = value;
+
+            // Move to next question after brief delay for visual feedback
+            setTimeout(() => {
+                currentQuestion++;
+                showQuestion();
+            }, 300);
+        }
+
+        // ===== CALCULATE SCORE =====
+        function calculateScore() {
+            let calculatedScore = 0;
+
+            // Q1: Time in Spain
+            if (answers.residencyTime === 'more-2') {
+                calculatedScore += 40;
+            }
+
+            // Q2: Employment contract (only if 2+ years)
+            if (answers.employmentContract === 'yes' && answers.residencyTime === 'more-2') {
+                calculatedScore += 40;
+            }
+
+            // Q3: Criminal record
+            if (answers.criminalRecord === 'yes') {
+                calculatedScore = 0;
+            } else if (answers.criminalRecord === 'no') {
+                calculatedScore += 20;
+            }
+
+            score = Math.max(0, Math.min(100, calculatedScore));
+        }
+
+        // ===== SHOW RESULT =====
+        function showResult() {
+            const message = getResultMessage();
+            const subtext = getResultSubtext();
+
+            document.getElementById('resultMessage').textContent = message;
+            document.getElementById('resultSubtext').textContent = subtext;
+
+            // Set up circle animation
+            const circle = document.getElementById('resultCircleProgress');
+            const circumference = 2 * Math.PI * 90; // radius is 90
+            const offset = circumference - (score / 100) * circumference;
+            circle.style.setProperty('--offset', offset);
+
+            // Animate percentage value
+            animatePercentage();
+
+            // Show disclaimers
+            showDisclaimers();
+
+            // Trigger confetti for high scores
+            if (score >= 80) {
+                triggerConfetti();
+            }
+
+            // Email capture slides in after animation
+            setTimeout(() => {
+                document.getElementById('emailCapture').style.animationDelay = '0s';
+            }, 500);
+
+            showScreen('resultScreen');
+        }
+
+        // ===== ANIMATE PERCENTAGE =====
+        function animatePercentage() {
+            const element = document.getElementById('percentageValue');
+            let current = 0;
+            const target = score;
+            const duration = 2000;
+            const startTime = Date.now();
+
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                current = Math.floor(progress * target);
+                element.textContent = current + '%';
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    element.textContent = target + '%';
+                }
+            }
+
+            animate();
+        }
+
+        // ===== GET RESULT MESSAGE =====
+        function getResultMessage() {
+            if (answers.criminalRecord === 'yes') {
+                return 'Necesitas asesoramiento especializado';
+            }
+
+            if (score >= 80) {
+                return '¡Excelentes perspectivas!';
+            } else if (score >= 60) {
+                return 'Buenas perspectivas';
+            } else if (score >= 40) {
+                return 'Perspectivas moderadas';
+            } else if (score >= 20) {
+                return 'Perspectivas limitadas';
+            } else {
+                return 'Podrías necesitar más tiempo o documentación';
+            }
+        }
+
+        // ===== GET RESULT SUBTEXT =====
+        function getResultSubtext() {
+            if (answers.criminalRecord === 'yes') {
+                return 'Los antecedentes penales requieren un análisis legal profundo. Contáctanos para explorar opciones en tu caso específico.';
+            }
+
+            if (score === 100) {
+                return 'Cumples con los criterios generales. Se recomienda una consulta con un abogado especializado para validar tu documentación.';
+            } else if (score >= 60) {
+                return 'Tienes una base sólida. Un abogado especializado puede ayudarte a fortalecer tu solicitud.';
+            } else {
+                return 'Aunque tu probabilidad es moderada, existen opciones. Consulta con un especialista para un análisis personalizado.';
+            }
+        }
+
+        // ===== SHOW DISCLAIMERS =====
+        function showDisclaimers() {
+            const container = document.getElementById('disclaimersContainer');
+            container.innerHTML = '';
+
+            const disclaimer1 = document.createElement('div');
+            disclaimer1.className = 'disclaimer-box accent';
+            disclaimer1.setAttribute('role', 'note');
+            disclaimer1.innerHTML = '<strong>⚠️ Disclaimer legal:</strong> Esta es una estimación preliminar basada en tus respuestas. No garantiza la concesión del permiso. Para un análisis definitivo, consulta con un abogado especializado en inmigración.';
+            container.appendChild(disclaimer1);
+
+            if (answers.criminalRecord === 'yes') {
+                const disclaimer2 = document.createElement('div');
+                disclaimer2.className = 'disclaimer-box';
+                disclaimer2.setAttribute('role', 'alert');
+                disclaimer2.innerHTML = '<strong>⚠️ Antecedentes penales:</strong> Los antecedentes penales en España suponen consideraciones especiales en solicitudes de Arraigo. Contacta con nosotros inmediatamente para estudiar tu caso.';
+                container.appendChild(disclaimer2);
+            }
+        }
+
+        // ===== TRIGGER CONFETTI =====
+        function triggerConfetti() {
+            const colors = ['#2563eb', '#60a5fa', '#1e3a8a', '#3b82f6'];
+            const confettiCount = 50;
+
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti falling';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animation = `confettiFall ${2 + Math.random() * 1}s ease-in forwards`;
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // ===== EMAIL VALIDATION =====
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // ===== SUBMIT EMAIL =====
+        function submitEmail() {
+            const email = document.getElementById('emailInput').value.trim();
+            const errorDiv = document.getElementById('emailError');
+
+            if (!email) {
+                errorDiv.textContent = 'Por favor, ingresa tu correo electrónico.';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                errorDiv.textContent = 'Por favor, ingresa un correo electrónico válido.';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            errorDiv.style.display = 'none';
+
+            // Here you would typically send the email to your backend
+            // For now, we'll just show the thank you screen
+            console.log('Email submitted:', email);
+            console.log('Quiz answers:', answers);
+            console.log('Final score:', score);
+
+            // TODO: Connect to your API endpoint
+            // fetch('/api/capture-lead', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email, answers, score })
+            // });
+
+            showScreen('thankYouScreen');
+        }
+
+        // ===== RESET QUIZ =====
+        function resetQuiz() {
+            currentQuestion = 0;
+            answers = {};
+            score = 0;
+            document.getElementById('emailInput').value = '';
+            document.getElementById('emailError').style.display = 'none';
+            showScreen('startScreen');
+            updateProgress();
+        }
+
+        // ===== INITIALIZE =====
+        initializeProgressDots();
+        updateProgress();
+
+        // Accessibility: Allow Enter key to start quiz
+        document.getElementById('startBtn').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') startQuiz();
+        });
+    </script>
+</body>
+</html>

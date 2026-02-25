@@ -1,8 +1,24 @@
+# ===== SITE CORE =====
 title: Regularízate Digital
 email: hola@regularizate.digital
-description: >-
-  La plataforma líder para la regularización de extranjeros en España. 
-  Trámites digitales, rápidos y sin cita previa.
+description: >
+  La plataforma líder para regularización de extranjeros en España.
+  Arraigo Social, Formación y Asilo. Trámites 100% digitales, sin cita previa.
+author: Regularízate Digital - Abogados Especializados
+keywords: "Arraigo Social, Arraigo Formación, Regularización España, Extranjería"
+
+# ===== JEKYLL CONFIG =====
 baseurl: ""
-url: "https://www.regularizate.digital" 
-permalink: /:title/
+url: "https://www.regularizate.digital"
+permlink: /:title/
+timezone: Europe/Madrid
+lang: es
+
+# ===== ANALYTICS & INTEGRATIONS (Update with your IDs) =====
+google_analytics_id: "G_XXXXXXXXXX"
+
+# ===== JEKYLL BUILD =====
+include: [.htaccess]
+exclude: [README.md, Gemfile, .git]
+markdown: kramdown
+highlighter: rouge

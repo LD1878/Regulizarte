@@ -1,5 +1,5 @@
 /* ==========================================================
-   REGULARIZATE DIGITAL: Master Style Sheet
+   REGULARIZATE DIGITAL: Master Style Sheet (v2.0 Optimized)
    ========================================================== */
 
 /* ----------------------------------------------------------
@@ -12,6 +12,10 @@
   --brand-alert: #dc2626;      /* Urgency/Deadline Red */
   --brand-success: #16a34a;    /* WhatsApp/Success Green */
   
+  /* GRADIENTS */
+  --gradient-blue: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --gradient-hero: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%);
+  
   /* DEFAULT THEME */
   --bg-primary: #f8fafc;       /* Light Blue-Grey Background */
   --bg-secondary: #ffffff;
@@ -21,14 +25,19 @@
   
   /* SPACING & UTILS */
   --sp-radius: 8px;            /* Slightly more rounded for modern feel */
+  --sp-radius-xl: 16px;
   --sp-font-heavy: 'Oswald', sans-serif;
-  --sp-font-body: 'Inter', sans-serif; /* CHANGED: Modern Tech Font */
+  --sp-font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --sp-max-width: 1200px;
   
   /* SHADOWS */
   --elev-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --elev-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --elev-3: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --elev-4: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  
+  /* TRANSITIONS */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ----------------------------------------------------------
@@ -38,6 +47,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
@@ -45,6 +58,8 @@ body {
   line-height: 1.6;
   margin: 0;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   
   /* TEXTURE: Subtle Digital Grid */
   background-image: 
@@ -54,7 +69,7 @@ body {
   background-position: center top;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--sp-font-heavy);
   font-weight: 700;
   margin-bottom: 1rem;
@@ -71,7 +86,6 @@ h1 {
 
 h2 {
   font-size: 2.25rem;
-  border-bottom: 0; /* Removed the gold line for a cleaner look */
   margin-top: 3rem;
   color: var(--brand-dark);
 }
@@ -82,12 +96,36 @@ h3 {
   margin-top: 0;
 }
 
-p { margin-bottom: 1rem; color: var(--text-muted); }
-a { color: var(--brand-blue); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--brand-dark); }
+p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
 
-.center { text-align: center; }
-.container { max-width: var(--sp-max-width); margin: 0 auto; padding: 0 1.5rem; }
+a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--brand-dark);
+}
+
+a:focus {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.center {
+  text-align: center;
+}
+
+.container {
+  max-width: var(--sp-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
 hr {
   border: 0;
@@ -95,11 +133,30 @@ hr {
   margin: 3rem 0;
 }
 
+/* Accessibility: Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 999;
+  padding: 8px 16px;
+  background: var(--brand-blue);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-to-main:focus {
+  top: 0;
+  left: 0;
+}
+
 /* ----------------------------------------------------------
    3. BUTTONS (Standard & Variants)
    ---------------------------------------------------------- */
 .btn {
-  background: var(--brand-blue);
+  background: var(--gradient-blue);
   color: #ffffff !important;
   font-weight: 700;
   padding: 0.85rem 2rem;
@@ -111,15 +168,47 @@ hr {
   border: 2px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: var(--transition);
   font-family: var(--sp-font-heavy);
-  box-shadow: var(--elev-1);
+  box-shadow: var(--elev-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.3s ease;
+}
+
+.btn:hover:before {
+  left: 100%;
 }
 
 .btn:hover {
-  background: var(--brand-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--elev-2);
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-3px);
+  box-shadow: var(--elev-4);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+.btn:focus {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .btn-outline {
@@ -128,6 +217,7 @@ hr {
     border: 2px solid var(--brand-blue) !important;
     box-shadow: none !important;
 }
+
 .btn-outline:hover {
     background-color: var(--brand-blue) !important;
     color: #ffffff !important;
@@ -221,15 +311,43 @@ hr {
     gap: 10px;
     width: 100%;
     margin-top: 1.5rem;
-    box-shadow: var(--elev-1);
-    transition: 0.3s;
+    box-shadow: var(--elev-2);
+    transition: var(--transition);
+    border: 2px solid transparent;
 }
-.btn-whatsapp:hover { background: #15803d; transform: scale(1.02); }
+
+.btn-whatsapp:hover {
+    background: #15803d;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(21, 128, 61, 0.3);
+}
+
+.btn-whatsapp:focus {
+    outline: 2px solid var(--brand-success);
+    outline-offset: 2px;
+}
 
 /* CHECKLISTS */
-.digital-list { list-style: none; padding: 0; text-align: left; margin: 2rem 0; }
-.digital-list li { margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px; color: var(--text-primary); }
-.digital-list li svg { flex-shrink: 0; color: var(--brand-success); margin-top: 3px; }
+.digital-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.digital-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-primary);
+}
+
+.digital-list li svg {
+    flex-shrink: 0;
+    color: var(--brand-success);
+    margin-top: 3px;
+}
 
 /* ----------------------------------------------------------
    5. FOOTER & UTILS
@@ -237,16 +355,197 @@ hr {
 .site-footer {
   background: var(--bg-secondary);
   color: var(--text-primary);
-  padding: 4rem 0 2rem;
+  padding: 4rem 2rem 2rem;
   margin-top: 5rem;
   border-top: 1px solid var(--border-light);
-  text-align: center;
   font-size: 0.9rem;
 }
 
-/* RESPONSIVE */
+.site-footer a {
+  color: var(--brand-blue);
+  transition: var(--transition);
+}
+
+.site-footer a:hover {
+  color: var(--brand-dark);
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------
+   6. RESPONSIVE DESIGN
+   ---------------------------------------------------------- */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+}
+
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    .hero-digital { padding-bottom: 4rem; }
-    .path-grid { margin-top: -2rem; }
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .hero-digital {
+        padding: 4rem 1rem 3rem;
+    }
+
+    .hero-digital h1 {
+        font-size: 1.75rem;
+    }
+
+    .path-grid {
+        margin-top: -1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .hero-digital {
+        padding: 2.5rem 1rem;
+        border-bottom-width: 3px;
+    }
+
+    .brand-pill {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .path-card {
+        padding: 1.5rem;
+    }
+
+    .action-box {
+        padding: 2rem 1rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+        letter-spacing: 0px;
+    }
+}
+
+/* ----------------------------------------------------------
+   7. DARK MODE SUPPORT
+   ---------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0f172a;
+        color: #f1f5f9;
+        background-image:
+            linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+    }
+
+    :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --text-primary: #f1f5f9;
+        --text-muted: #cbd5e1;
+        --border-light: #334155;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #60a5fa;
+    }
+
+    a {
+        color: #60a5fa;
+    }
+
+    a:hover {
+        color: #93c5fd;
+    }
+
+    .path-card {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    .path-icon {
+        background: #334155;
+        color: #60a5fa;
+    }
+
+    .action-box {
+        background: #1e293b;
+        border-color: #2563eb;
+    }
+
+    .site-footer {
+        background: #0f172a;
+        border-top-color: #334155;
+    }
+
+    .hero-digital {
+        background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 80%);
+    }
+}
+
+/* ----------------------------------------------------------
+   8. REDUCED MOTION SUPPORT
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ----------------------------------------------------------
+   9. HIGH CONTRAST MODE
+   ---------------------------------------------------------- */
+@media (prefers-contrast: more) {
+    body {
+        line-height: 1.8;
+    }
+
+    .btn {
+        border: 2px solid currentColor;
+        font-weight: 900;
+    }
+
+    a {
+        text-decoration: underline;
+    }
 }
