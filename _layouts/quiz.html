@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="Calcula tu probabilidad de obtener Arraigo Social o Formación en España. Solo 3 preguntas para descubrir tus oportunidades.">
+    <meta name="keywords" content="Arraigo Social, Arraigo Formación, Quiz, Probabilidad">
+    <title>{% if page.title %}{{ page.title }}{% else %}¿Cuáles son tus oportunidades?{% endif %}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+
+    <style>
+        /* ===== QUIZ PAGE FULL-SCREEN ===== */
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .quiz-container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* ===== HEADER (Quiz-specific) ===== */
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .quiz-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid #60a5fa;
+            color: #2563eb;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            line-height: 1.2;
+            margin: 0 0 1rem 0;
+        }
+
+        .quiz-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ===== HIDE FOOTER & WHATSAPP ON QUIZ PAGE ===== */
+        .site-footer,
+        .whatsapp-float {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-title {
+                font-size: 1.75rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main id="main-content">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <div class="quiz-badge">🎓 Quiz Interactivo</div>
+                <h1 class="quiz-title">¿Cuáles son tus oportunidades?</h1>
+                <p class="quiz-subtitle">
+                    Descubre tu probabilidad estimada de obtener Arraigo Social o Formación en España. Solo 3 preguntas.
+                </p>
+            </div>
+
+            {{ content }}
+        </div>
+    </main>
+
+    <script>
+        // No footer on quiz pages
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.site-footer, .whatsapp-float').forEach(el => {
+                el.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
