@@ -4,6 +4,1001 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="Evaluación gratuita de elegibilidad para regularización en España. Arraigo Social, Formación, Extraordinaria 2026, Asilo y más.">
+    <meta name="keywords" content="Regularización España, Arraigo, Asilo, Extranjería, Evaluación Gratuita">
+    <title>Evaluación de Elegibilidad para Regularización | Regularízate Digital</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+        }
+
+        .assessment-wrapper {
+            width: 100%;
+            max-width: 720px;
+        }
+
+        .assessment-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .assessment-header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #e2e8f0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* ===== BODY ===== */
+        .assessment-body {
+            padding: 3rem 2.5rem;
+        }
+
+        .progress-indicator {
+            margin-bottom: 2.5rem;
+        }
+
+        .progress-bar-container {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .progress-text {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== SCREENS ===== */
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== START SCREEN ===== */
+        .start-screen {
+            text-align: center;
+        }
+
+        .start-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        .start-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .pathways-list {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+        }
+
+        .pathway-item {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .pathway-item:last-child {
+            border-bottom: none;
+        }
+
+        .pathway-item strong {
+            color: #1e293b;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 1.1rem 2rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1), 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* ===== QUESTION SCREEN ===== */
+        .question-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .question-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-button {
+            display: block;
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .option-button:hover {
+            border-color: #2563eb;
+            background: #f0f9ff;
+            transform: translateX(6px);
+        }
+
+        .option-button:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .option-button.selected {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            border-color: #2563eb;
+            font-weight: 600;
+        }
+
+        .option-button.selected::after {
+            content: " ✓";
+            font-weight: 700;
+        }
+
+        /* ===== RESULT SCREEN ===== */
+        .result-container {
+            text-align: center;
+        }
+
+        .result-score-box {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+            border-radius: 12px;
+            border: 2px solid #bfdbfe;
+        }
+
+        .result-percentage {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #1e40af;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: #1e40af;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.3;
+        }
+
+        .result-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .disclaimer-box {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+            padding: 1.25rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #7f1d1d;
+            line-height: 1.6;
+        }
+
+        .disclaimer-box.info {
+            background: #f0f9ff;
+            border-left-color: #2563eb;
+            color: #1e40af;
+        }
+
+        /* ===== EMAIL SECTION ===== */
+        .email-section {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .email-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .email-error {
+            color: #dc2626;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 0.95rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Inter', system-ui, sans-serif;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background: #f0f9ff;
+        }
+
+        .email-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #334155 !important;
+            box-shadow: none;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            border-color: #cbd5e1;
+        }
+
+        /* ===== THANK YOU SCREEN ===== */
+        .thankyou-container {
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .thankyou-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .thankyou-text {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .calendly-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .calendly-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .assessment-header {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .assessment-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .start-title {
+                font-size: 1.5rem;
+            }
+
+            .question-title {
+                font-size: 1.4rem;
+            }
+
+            .result-percentage {
+                font-size: 3.5rem;
+            }
+
+            .result-title {
+                font-size: 1.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .assessment-header {
+                padding: 2rem 1.25rem;
+            }
+
+            .assessment-body {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .header-title {
+                font-size: 1.65rem;
+            }
+
+            .start-title {
+                font-size: 1.35rem;
+            }
+
+            .start-description {
+                font-size: 0.95rem;
+            }
+
+            .question-title {
+                font-size: 1.2rem;
+            }
+
+            .option-button {
+                padding: 1rem 1.25rem;
+                font-size: 0.95rem;
+            }
+
+            .result-percentage {
+                font-size: 2.75rem;
+            }
+
+            .result-title {
+                font-size: 1.4rem;
+            }
+
+            .cta-button {
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            }
+
+            .assessment-card {
+                background: #1e293b;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            }
+
+            .assessment-body {
+                background: #1e293b;
+            }
+
+            .header-title,
+            .start-title,
+            .question-title,
+            .result-title,
+            .thankyou-title {
+                color: #e2e8f0;
+            }
+
+            .header-subtitle,
+            .start-description,
+            .question-label,
+            .result-description,
+            .thankyou-text {
+                color: #cbd5e1;
+            }
+
+            .option-button {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9;
+            }
+
+            .option-button:hover {
+                background: #1e40af;
+                border-color: #2563eb;
+            }
+
+            .pathways-list {
+                background: #334155;
+                border-color: #475569;
+            }
+
+            .pathway-item {
+                border-bottom-color: #475569;
+                color: #cbd5e1;
+            }
+
+            .pathway-item strong {
+                color: #e2e8f0;
+            }
+
+            .email-input {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9;
+            }
+
+            .email-input:focus {
+                background: #1e40af;
+                border-color: #2563eb;
+            }
+
+            .progress-bar-container {
+                background: #334155;
+            }
+
+            .result-score-box {
+                background: #1e3a8a;
+                border-color: #2563eb;
+            }
+
+            .result-percentage,
+            .result-label {
+                color: #bfdbfe;
+            }
+
+            .disclaimer-box {
+                background: #7f1d1d;
+                color: #fecaca;
+            }
+
+            .disclaimer-box.info {
+                background: #1e3a8a;
+                border-left-color: #2563eb;
+                color: #bfdbfe;
+            }
+
+            .btn-secondary {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9 !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main id="main-content">
+        <div class="assessment-wrapper">
+            <div class="assessment-card">
+                <!-- HEADER -->
+                <div class="assessment-header">
+                    <div class="header-badge">EVALUACION GRATUITA</div>
+                    <h1 class="header-title">Evaluación de Elegibilidad Regularización</h1>
+                    <p class="header-subtitle">Descubre tus opciones de regularización en España basado en tu situación actual</p>
+                </div>
+
+                <!-- BODY -->
+                <div class="assessment-body">
+                    <!-- Progress -->
+                    <div class="progress-indicator" id="progressIndicator">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Pregunta 0 de 0</div>
+                    </div>
+
+                    <!-- START SCREEN -->
+                    <div class="screen active" id="startScreen">
+                        <div class="start-screen">
+                            <h2 class="start-title">Encuentra tu vía de regularización</h2>
+                            <p class="start-description">
+                                Existen múltiples caminos para regularizar tu situación en España. Responde este cuestionario para descubrir cuál es la opción más viable según tu perfil.
+                            </p>
+
+                            <div class="pathways-list">
+                                <div class="pathway-item">
+                                    <strong>Regularización Extraordinaria 2026</strong>
+                                    Amplio programa de regularización abierto hasta 30 de junio de 2026. Requiere permanencia continuada de 5 meses antes del 31/12/2025.
+                                </div>
+                                <div class="pathway-item">
+                                    <strong>Arraigo Social</strong>
+                                    Para quienes llevan 2+ años en España y cuentan con contrato laboral o oferta de empleo.
+                                </div>
+                                <div class="pathway-item">
+                                    <strong>Arraigo por Formación</strong>
+                                    Opción para residentes de 2+ años sin contrato, comprometiéndose a realizar formación certificada.
+                                </div>
+                                <div class="pathway-item">
+                                    <strong>Protección Internacional / Asilo</strong>
+                                    Proceso específico para solicitantes con solicitudes presentadas antes del 31/12/2025.
+                                </div>
+                                <div class="pathway-item">
+                                    <strong>Razones Humanitarias</strong>
+                                    Procedimiento especializado para casos con circunstancias excepcionales.
+                                </div>
+                            </div>
+
+                            <button class="cta-button" onclick="startAssessment()">
+                                COMENZAR EVALUACION
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- QUESTION SCREEN -->
+                    <div class="screen" id="questionScreen">
+                        <div class="question-label" id="questionLabel"></div>
+                        <h2 class="question-title" id="questionTitle"></h2>
+                        <div class="options-grid" id="optionsContainer"></div>
+                    </div>
+
+                    <!-- RESULT SCREEN -->
+                    <div class="screen" id="resultScreen">
+                        <div class="result-container">
+                            <div class="result-score-box">
+                                <div class="result-percentage" id="scorePercentage">0%</div>
+                                <div class="result-label">Probabilidad Estimada</div>
+                            </div>
+
+                            <h2 class="result-title" id="resultTitle"></h2>
+                            <p class="result-description" id="resultDescription"></p>
+
+                            <div id="disclaimersContainer"></div>
+
+                            <!-- EMAIL CAPTURE -->
+                            <div class="email-section">
+                                <label class="email-label">Obtén tu análisis detallado por correo</label>
+                                <div class="email-error" id="emailError"></div>
+                                <input
+                                    type="email"
+                                    class="email-input"
+                                    id="emailInput"
+                                    placeholder="correo@ejemplo.com"
+                                    aria-label="Tu correo electrónico"
+                                />
+                                <div class="button-group">
+                                    <button class="cta-button" onclick="submitEmail()">ENVIAR EVALUACION</button>
+                                    <button class="cta-button btn-secondary" onclick="resetAssessment()">VOLVER A EMPEZAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- THANK YOU SCREEN -->
+                    <div class="screen" id="thankYouScreen">
+                        <div class="thankyou-container">
+                            <h2 class="thankyou-title">Evaluación Enviada</h2>
+                            <p class="thankyou-text">
+                                Hemos enviado tu evaluación completa a <strong id="displayEmail"></strong>
+                                <br><br>
+                                Un especialista en extranjería revisará tu caso y se pondrá en contacto contigo dentro de 24 horas para discutir tus opciones de regularización y los próximos pasos.
+                            </p>
+
+                            <a href="https://calendly.com/regularizarte" class="calendly-link" target="_blank" rel="noopener">
+                                AGENDAR CONSULTA CON ABOGADO
+                            </a>
+
+                            <button class="cta-button btn-secondary" onclick="resetAssessment()" style="margin-top: 1.5rem;">
+                                VOLVER AL INICIO
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const questions = [
+            {
+                id: 'residencyDuration',
+                title: 'Cuánto tiempo llevas en España de forma continuada',
+                options: [
+                    { text: 'Menos de 5 meses', value: 'less5' },
+                    { text: 'Entre 5 meses y 2 años', value: '5to24' },
+                    { text: 'Entre 2 y 3 años', value: '24to36' },
+                    { text: 'Más de 3 años', value: 'more36' }
+                ]
+            },
+            {
+                id: 'employmentStatus',
+                title: 'Situación laboral actual',
+                options: [
+                    { text: 'Tengo contrato de trabajo firmado', value: 'employed' },
+                    { text: 'Tengo oferta de empleo formal', value: 'offer' },
+                    { text: 'Trabajo sin registro formal', value: 'informal' },
+                    { text: 'No estoy trabajando', value: 'unemployed' }
+                ]
+            },
+            {
+                id: 'asylumStatus',
+                title: 'Has solicitado protección internacional o asilo',
+                options: [
+                    { text: 'Sí, solicitud presentada antes del 31/12/2025', value: 'yes' },
+                    { text: 'Sí, pero solicitud después del 31/12/2025', value: 'after' },
+                    { text: 'No, nunca he solicitado', value: 'no' }
+                ]
+            },
+            {
+                id: 'criminalRecord',
+                title: 'Tienes antecedentes penales en España',
+                options: [
+                    { text: 'Sí, tengo antecedentes', value: 'yes' },
+                    { text: 'No, estoy limpio penalmente', value: 'no' },
+                    { text: 'No estoy seguro', value: 'unclear' }
+                ]
+            },
+            {
+                id: 'documentationStatus',
+                title: 'Puedes acreditar tu permanencia continuada en España',
+                options: [
+                    { text: 'Sí, tengo empadronamiento y documentación completa', value: 'full' },
+                    { text: 'Sí, pero tengo documentación parcial', value: 'partial' },
+                    { text: 'No, muy poca documentación', value: 'minimal' },
+                    { text: 'No estoy seguro qué tengo', value: 'unclear' }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = {};
+        let score = 0;
+
+        function startAssessment() {
+            currentQuestion = 0;
+            answers = {};
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentQuestion >= questions.length) {
+                calculateScore();
+                showResult();
+                return;
+            }
+
+            const q = questions[currentQuestion];
+            document.getElementById('questionLabel').textContent = `Pregunta ${currentQuestion + 1} de ${questions.length}`;
+            document.getElementById('questionTitle').textContent = q.title;
+
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-button';
+                btn.textContent = opt.text;
+                btn.onclick = () => selectOption(opt.value, btn);
+                container.appendChild(btn);
+            });
+
+            updateProgress();
+            showScreen('questionScreen');
+        }
+
+        function selectOption(value, btn) {
+            document.querySelectorAll('.option-button').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            answers[questions[currentQuestion].id] = value;
+
+            setTimeout(() => {
+                currentQuestion++;
+                showQuestion();
+            }, 300);
+        }
+
+        function calculateScore() {
+            let s = 0;
+
+            // Regularización Extraordinaria 2026: 5+ months before 31/12/2025
+            if (['5to24', '24to36', 'more36'].includes(answers.residencyDuration)) {
+                s += 30;
+            }
+
+            // Employment status
+            if (answers.employmentStatus === 'employed') s += 30;
+            else if (answers.employmentStatus === 'offer') s += 25;
+            else if (answers.employmentStatus === 'informal') s += 15;
+
+            // Asylum
+            if (answers.asylumStatus === 'yes') s += 25;
+            else if (answers.asylumStatus === 'after') s += 10;
+
+            // Criminal record reduces score significantly
+            if (answers.criminalRecord === 'yes') {
+                s = Math.max(0, s - 50);
+            }
+
+            // Documentation
+            if (answers.documentationStatus === 'full') s += 20;
+            else if (answers.documentationStatus === 'partial') s += 10;
+
+            score = Math.max(0, Math.min(100, s));
+        }
+
+        function showResult() {
+            let title, description;
+
+            if (answers.criminalRecord === 'yes') {
+                title = 'Necesitas asesoramiento especializado';
+                description = 'Los antecedentes penales requieren evaluación jurídica detallada. Nuestros abogados pueden analizar si hay opciones disponibles según la naturaleza y antigüedad de los delitos.';
+            } else if (score >= 75) {
+                title = 'Excelentes perspectivas de regularización';
+                description = 'Cumples con varios criterios de elegibilidad. Los abogados especialistas analizarán la opción más favorable para tu caso.';
+            } else if (score >= 50) {
+                title = 'Perspectivas moderadas a buenas';
+                description = 'Tienes opciones viables de regularización. Una evaluación profesional determinará la estrategia óptima.';
+            } else if (score >= 25) {
+                title = 'Perspectivas limitadas pero presentes';
+                description = 'Algunas vías pueden estar disponibles. Consulta con especialista para explorar todas las opciones.';
+            } else {
+                title = 'Requiere análisis profesional profundo';
+                description = 'Tu situación requiere evaluación detallada de abogado. Hay opciones que solo profesionales pueden analizar correctamente.';
+            }
+
+            document.getElementById('scorePercentage').textContent = score + '%';
+            document.getElementById('resultTitle').textContent = title;
+            document.getElementById('resultDescription').textContent = description;
+
+            showDisclaimers();
+            document.getElementById('progressIndicator').style.display = 'none';
+            showScreen('resultScreen');
+        }
+
+        function showDisclaimers() {
+            const container = document.getElementById('disclaimersContainer');
+            container.innerHTML = '';
+
+            const d1 = document.createElement('div');
+            d1.className = 'disclaimer-box info';
+            d1.innerHTML = '<strong>Importante:</strong> Esta evaluación es preliminar basada en información general. No constituye asesoramiento legal. Solo un abogado colegiado especializado puede proporcionar análisis definitivo.';
+            container.appendChild(d1);
+
+            if (answers.criminalRecord === 'yes') {
+                const d2 = document.createElement('div');
+                d2.className = 'disclaimer-box';
+                d2.innerHTML = '<strong>Antecedentes Penales:</strong> La evaluación indica que los antecedentes penales complicarán significativamente cualquier procedimiento. Asesoramiento inmediato con abogado especializado es crítico.';
+                container.appendChild(d2);
+            }
+
+            const d3 = document.createElement('div');
+            d3.className = 'disclaimer-box info';
+            d3.innerHTML = '<strong>Plazo Regularización Extraordinaria 2026:</strong> Las solicitudes estarán abiertas hasta 30 de junio de 2026 (previsiblemente a partir de abril). Requiere demostrar permanencia continuada de 5 meses antes del 31/12/2025.';
+            container.appendChild(d3);
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Pregunta ${currentQuestion} de ${questions.length}`;
+        }
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function submitEmail() {
+            const email = document.getElementById('emailInput').value.trim();
+            const error = document.getElementById('emailError');
+
+            if (!email || !validateEmail(email)) {
+                error.textContent = email ? 'Correo inválido' : 'Por favor ingresa tu correo';
+                error.style.display = 'block';
+                return;
+            }
+
+            error.style.display = 'none';
+            console.log('Lead:', { email, answers, score });
+
+            document.getElementById('displayEmail').textContent = email;
+            showScreen('thankYouScreen');
+        }
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function resetAssessment() {
+            currentQuestion = 0;
+            answers = {};
+            score = 0;
+            document.getElementById('emailInput').value = '';
+            document.getElementById('emailError').style.display = 'none';
+            document.getElementById('progressIndicator').style.display = 'block';
+            updateProgress();
+            showScreen('startScreen');
+        }
+    </script>
+</body>
+</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
     <meta name="description" content="Calcula tu probabilidad de obtener Arraigo Social o Formación en España. Solo 3 preguntas.">
     <meta name="keywords" content="Arraigo Social, Arraigo Formación, Quiz, Probabilidad">
     <title>¿Cuáles son tus oportunidades? | Regularízate Digital</title>
