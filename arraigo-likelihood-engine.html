@@ -2,25 +2,80 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Evaluación oficial de elegibilidad: Reglamento de Extranjería 2026. Analice sus opciones de arraigo extraordinario y protección internacional.">
     <title>Evaluación de Elegibilidad para Residencia | Regularízate Digital</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f4f7f6; }
-        .assessment-header { background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #0056b3; margin-bottom: 20px; }
-        .header-badge { background: #0056b3; color: white; padding: 5px 10px; font-size: 0.8em; border-radius: 4px; display: inline-block; }
-        .screen { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .pathway-item { margin: 15px 0; padding: 10px; border-bottom: 1px solid #eee; }
-        button { background: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 15px; 
+            background-color: #f4f7f6; 
+            color: #333;
+        }
+        .assessment-header { 
+            background: #fff; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border-left: 5px solid #0056b3; 
+            margin-bottom: 20px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .header-badge { background: #0056b3; color: white; padding: 5px 10px; font-size: 0.8em; border-radius: 4px; display: inline-block; font-weight: bold; }
+        .header-title { font-size: 1.5em; margin: 10px 0; }
+        
+        .screen { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .pathway-item { margin: 15px 0; padding: 15px; border-bottom: 1px solid #eee; background: #fafafa; border-radius: 6px; }
+        
+        /* Mobile-friendly buttons */
+        button { 
+            background: #0056b3; 
+            color: white; 
+            padding: 15px 20px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            margin-top: 10px; 
+            font-size: 1em;
+            font-weight: bold;
+            width: 100%; /* Full width on mobile */
+            transition: background 0.3s;
+        }
+        button:hover { background: #004494; }
+        
+        .option-btn { background: #e9ecef; color: #333; text-align: left; margin-bottom: 10px; font-weight: normal; border: 1px solid #ccc; }
+        .option-btn:hover { background: #dde2e6; }
+        
+        .cta-premium { background: #28a745; font-size: 1.1em; margin-top: 20px; }
+        .cta-premium:hover { background: #218838; }
+
         .hidden { display: none; }
-        .disclaimer { font-size: 0.85em; color: #666; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ccc; }
+        
+        /* Sales Page Styling */
+        .sales-box { border: 2px solid #28a745; padding: 20px; border-radius: 8px; text-align: center; margin-top: 20px; background: #f8fff9; }
+        .price { font-size: 2em; font-weight: bold; color: #28a745; margin: 10px 0; }
+        .features-list { text-align: left; margin: 20px auto; max-width: 400px; }
+        .features-list li { margin-bottom: 10px; }
+        
+        .disclaimer { font-size: 0.8em; color: #666; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ccc; text-align: justify; }
+
+        /* Media query for slightly larger screens to keep buttons from being too wide on desktop */
+        @media (min-width: 600px) {
+            button { width: auto; min-width: 200px; }
+            .option-btn { width: 100%; }
+            .cta-premium { width: 100%; }
+        }
     </style>
 </head>
 <body>
 
     <div class="assessment-header">
         <div class="header-badge">ACTUALIZACIÓN REGLAMENTO 2026</div>
-        <h1>Evaluación de Elegibilidad para Residencia</h1>
-        <p>Determine sus posibilidades de regularización bajo las nuevas disposiciones de arraigo (vigencia 2026).</p>
+        <h1 class="header-title">Evaluación de Elegibilidad para Residencia</h1>
+        <p>Determine sus posibilidades de regularización bajo las nuevas disposiciones de arraigo.</p>
     </div>
 
     <div class="screen" id="startScreen">
@@ -28,9 +83,9 @@
         <p>El nuevo marco normativo simplifica los procesos de extranjería. Responda este cuestionario técnico para identificar la vía administrativa adecuada para su situación legal en España.</p>
         
         <div class="pathways-list">
-            <div class="pathway-item"><strong>Arraigo Extraordinario:</strong> Disponible para quienes acrediten 5 meses de permanencia antes del 31 de diciembre de 2025: incluye supuestos por contrato, cuenta propia o vulnerabilidad social.</div>
-            <div class="pathway-item"><strong>Arraigo para Solicitantes de Asilo:</strong> Procedimiento específico para personas con solicitud de protección internacional presentada antes del 1 de enero de 2026 (requiere 5 meses de estancia continuada).</div>
-            <div class="pathway-item"><strong>Unidad Familiar:</strong> Tratamiento preferente para progenitores con hijos menores a cargo: permite la inclusión de los menores en la solicitud principal para obtener residencia vinculada.</div>
+            <div class="pathway-item"><strong>Arraigo Extraordinario:</strong> Para quienes acrediten 5 meses de permanencia antes del 31 de diciembre de 2025.</div>
+            <div class="pathway-item"><strong>Asilo:</strong> Procedimiento para personas con solicitud de asilo antes del 1 de enero de 2026.</div>
+            <div class="pathway-item"><strong>Unidad Familiar:</strong> Tratamiento preferente para progenitores con hijos menores a cargo.</div>
         </div>
         <button onclick="nextQuestion()">INICIAR EVALUACIÓN TÉCNICA</button>
     </div>
@@ -41,11 +96,49 @@
     </div>
 
     <div class="screen hidden" id="resultArea">
+        <h2 id="resultTitle">Resultado del Análisis</h2>
+        <p id="resultMessage"></p>
+        <div id="actionContainer"></div>
+    </div>
+
+    <div class="screen hidden" id="salesScreen">
+        <h2>Servicio de Regularización Premium</h2>
+        <p>Basado en sus respuestas, su perfil es altamente apto para iniciar el trámite de residencia. Evite errores burocráticos y asegure su futuro en España con nuestro equipo legal.</p>
+        
+        <div class="sales-box">
+            <h3>Todo Incluido</h3>
+            <div class="price">500 €</div>
+            <ul class="features-list">
+                <li>✅ Revisión y validación de toda su documentación.</li>
+                <li>✅ Presentación telemática del expediente.</li>
+                <li>✅ Asesoría legal continua durante todo el proceso.</li>
+                <li>✅ Tasa de extranjería e impuestos de tramitación incluidos.</li>
+                <li>✅ Agendamiento de cita para toma de huellas.</li>
+            </ul>
+            
+            <p><strong>Paso 1:</strong> Realice el pago seguro a través de Wise.</p>
+            <a href="https://wise.com/pay/me/tu-enlace-aqui" target="_blank" style="text-decoration: none;">
+                <button class="cta-premium">PAGAR 500€ CON WISE</button>
+            </a>
+            
+            <p style="margin-top: 30px; font-size: 0.9em; color: #555;"><strong>Paso 2:</strong> Una vez completado el pago, continúe para elegir la fecha y hora de su consulta.</p>
+            <button onclick="goToCalendar()" style="background: #6c757d;">He completado el pago (Ir a la Agenda)</button>
+        </div>
+    </div>
+
+    <div class="screen hidden" id="calendarScreen">
+        <h2>Agende su Consulta Inicial</h2>
+        <p>Gracias por confiar en nosotros. Por favor, seleccione el día y la hora que mejor se adapten a su disponibilidad para que nuestro abogado revise su caso.</p>
+        
+        <div style="border: 1px solid #ccc; padding: 20px; text-align: center; background: #fafafa; border-radius: 8px;">
+            <p>[Aquí se integrará el calendario de Google Calendar o Calendly]</p>
+            <p><em>Ejemplo: Por favor, seleccione un horario disponible en el widget a continuación.</em></p>
+            </div>
     </div>
 
     <div class="disclaimer">
         <strong>AVISO LEGAL IMPORTANTE</strong><br>
-        Esta herramienta ofrece una orientación preliminar basada en los criterios generales del Reglamento de Extranjería 2026. Este análisis no constituye una consulta legal profesional ni garantiza la concesión de ningún permiso de residencia. Se recomienda contactar con un abogado especializado antes de iniciar cualquier trámite.
+        Esta herramienta ofrece una orientación preliminar basada en los criterios generales del Reglamento de Extranjería 2026. Este análisis no constituye una consulta legal profesional ni garantiza la concesión de ningún permiso de residencia.
     </div>
 
     <script>
@@ -97,8 +190,8 @@
             container.innerHTML = '';
             q.options.forEach(opt => {
                 const btn = document.createElement('button');
+                btn.className = 'option-btn';
                 btn.innerText = opt.text;
-                btn.style.display = 'block';
                 btn.onclick = () => {
                     answers[q.id] = opt.value;
                     currentQ++;
@@ -131,14 +224,43 @@
             const res = document.getElementById('resultArea');
             res.classList.remove('hidden');
             
-            let message = score >= 80 ? "Su perfil presenta una alta probabilidad de regularización." : 
-                          score >= 50 ? "Su perfil cumple con requisitos básicos, pero requiere una revisión detallada de su documentación." : 
-                          "Su perfil no parece cumplir con los criterios actuales de arraigo según la normativa 2026.";
+            const messageEl = document.getElementById('resultMessage');
+            const actionContainer = document.getElementById('actionContainer');
             
-            if (answers.familyUnit === 'yes_minors') message += " Nota: Hemos aplicado un tratamiento preferente por contar con hijos menores a cargo (unidad familiar).";
-            if (answers.asylumStatus === 'asylum_before') message += " Importante: Si se le concede la autorización por esta vía, deberá desistir formalmente de su solicitud de protección internacional.";
+            let message = "";
+            let isEligible = false;
+
+            if (score >= 80) {
+                message = "<strong>¡Excelentes noticias!</strong> Su perfil presenta una muy alta probabilidad de regularización.";
+                isEligible = true;
+            } else if (score >= 50) {
+                message = "Su perfil cumple con los requisitos básicos y es viable, pero requiere preparar la documentación de forma estratégica.";
+                isEligible = true;
+            } else {
+                message = "En este momento, su perfil no parece cumplir con los criterios actuales de arraigo según la normativa 2026. Le sugerimos revisar su caso más adelante.";
+            }
             
-            res.innerHTML = `<h3>Resultado del Análisis</h3><p>${message}</p>`;
+            if (answers.familyUnit === 'yes_minors') message += "<br><br><em>Nota: Hemos detectado que cumple con el criterio de unidad familiar, lo cual fortalece enormemente su solicitud.</em>";
+            if (answers.asylumStatus === 'asylum_before') message += "<br><br><em>Importante: Si se le concede la autorización por esta vía, deberá desistir formalmente de su solicitud de protección internacional.</em>";
+            
+            messageEl.innerHTML = message;
+
+            // Generate Call to Action based on eligibility
+            if (isEligible) {
+                actionContainer.innerHTML = `<button class="cta-premium" onclick="goToSales()">CONTINUAR A CONTRATACIÓN Y AGENDA</button>`;
+            } else {
+                actionContainer.innerHTML = `<button onclick="location.reload()">Volver a intentar</button>`;
+            }
+        }
+
+        function goToSales() {
+            document.getElementById('resultArea').classList.add('hidden');
+            document.getElementById('salesScreen').classList.remove('hidden');
+        }
+
+        function goToCalendar() {
+            document.getElementById('salesScreen').classList.add('hidden');
+            document.getElementById('calendarScreen').classList.remove('hidden');
         }
     </script>
 </body>
