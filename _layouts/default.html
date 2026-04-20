@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regularízate Digital | Expertos en Regularización 2026</title>
-    
+   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --oxford-blue: #0F172A;
@@ -18,161 +17,343 @@
             --slate-900: #0F172A;
             --white: #FFFFFF;
         }
-
+        
+        @keyframes ribbonPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(185, 28, 28, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(185, 28, 28, 0.6); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        @keyframes shimmer {
+            100% { transform: translateX(250%); }
+        }
+        
+        @keyframes cardLift {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--oxford-blue);
             margin: 0;
             background-color: #FBFDFF;
+            scroll-behavior: smooth;
         }
-
-        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; margin: 0; }
-
-        /* Floating Urgency Hook */
+        
+        h1, h2, h3 { 
+            font-family: 'Oswald', sans-serif; 
+            text-transform: uppercase; 
+            margin: 0; 
+            letter-spacing: -1.5px;
+        }
+        
+        /* Floating Urgency Hook - pushed harder */
         .urgency-ribbon {
-            background: var(--crimson);
+            background: linear-gradient(90deg, var(--crimson), #991B1B);
             color: white;
             text-align: center;
-            padding: 10px 20px;
+            padding: 16px 20px;
             font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            letter-spacing: 1.2px;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 10000;
+            box-shadow: 0 4px 20px rgba(185, 28, 28, 0.3);
+            animation: ribbonPulse 2.5s infinite ease-in-out;
+            border-bottom: 3px solid #F59E0B;
         }
-
-        /* Hero Section - The "Hook" */
+        
+        /* Hero Section - The "Hook" - ultra premium push */
         .hero {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.97) 0%, rgba(30, 41, 59, 0.9) 100%), 
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(30, 41, 59, 0.94) 100%),
                         url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 120px 20px;
+            padding: clamp(110px, 18vh, 200px) 20px 140px;
             text-align: center;
-            border-bottom: 8px solid var(--amber-gold);
-        }
-
-        .hero h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 25px; }
-        .hero p { max-width: 750px; margin: 0 auto 40px; font-size: 1.25rem; color: var(--slate-300); font-weight: 300; }
-
-        /* The Likelihood Engine Button */
-        .cta-main {
-            background: var(--amber-gold);
-            color: white;
-            padding: 22px 50px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.3);
-            text-transform: uppercase;
-        }
-
-        .cta-main:hover {
-            transform: translateY(-3px);
-            background: #B45309;
-            box-shadow: 0 15px 30px rgba(217, 119, 6, 0.5);
-        }
-
-        /* Content Grid */
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
-
-        .feature-card {
-            background: white;
-            padding: 45px;
-            border-radius: 12px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
-            border: 1px solid #E2E8F0;
+            border-bottom: 10px solid var(--amber-gold);
             position: relative;
             overflow: hidden;
         }
-
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, transparent 30%, rgba(15, 23, 42, 0.35) 80%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero > .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 { 
+            font-size: clamp(3rem, 7vw, 5rem); 
+            line-height: 1.05; 
+            margin-bottom: 28px; 
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero p { 
+            max-width: 760px; 
+            margin: 0 auto 45px; 
+            font-size: clamp(1.2rem, 2.8vw, 1.4rem); 
+            color: var(--slate-300); 
+            font-weight: 400; 
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* The Likelihood Engine Button - high-conversion push */
+        .cta-main {
+            background: linear-gradient(90deg, var(--amber-gold), #F59E0B);
+            color: white;
+            padding: 26px 60px;
+            font-size: clamp(1.25rem, 3vw, 1.45rem);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 60px;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 35px rgba(217, 119, 6, 0.45);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-main::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 40%;
+            height: 300%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: skewX(-20deg);
+            animation: shimmer 5s linear infinite;
+        }
+        
+        .cta-main:hover {
+            transform: translateY(-6px) scale(1.06);
+            box-shadow: 0 25px 50px rgba(217, 119, 6, 0.6);
+            background: linear-gradient(90deg, #B45309, #D97706);
+        }
+        
+        /* Content Grid - premium card treatment */
+        .container { 
+            max-width: 1280px; 
+            margin: 0 auto; 
+            padding: 90px 20px; 
+        }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(370px, 1fr)); 
+            gap: 50px; 
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 52px 42px;
+            border-radius: 24px;
+            box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .feature-card:hover {
+            animation: cardLift 0.4s forwards;
+            box-shadow: 0 35px 60px -15px rgba(217, 119, 6, 0.25);
+            border-color: var(--amber-gold);
+        }
+        
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 5px;
-            background: var(--oxford-blue);
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 7px;
+            background: linear-gradient(to right, var(--oxford-blue), var(--amber-gold));
         }
-
-        .feature-card h3 { color: var(--amber-gold); font-size: 1.7rem; margin-bottom: 20px; }
-        .feature-card ul { padding-left: 20px; margin-bottom: 25px; }
-        .feature-card li { margin-bottom: 12px; font-size: 0.95rem; color: #334155; }
-
+        
+        .feature-card h3 { 
+            color: var(--amber-gold); 
+            font-size: 1.95rem; 
+            margin-bottom: 24px; 
+        }
+        
+        .feature-card ul { 
+            padding-left: 0; 
+            margin-bottom: 30px; 
+            list-style: none;
+        }
+        
+        .feature-card li { 
+            margin-bottom: 18px; 
+            font-size: 1.02rem; 
+            color: #334155;
+            position: relative;
+            padding-left: 32px;
+        }
+        
+        .feature-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--amber-gold);
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+        
         .legal-tag {
             display: inline-block;
-            background: #F1F5F9;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            background: linear-gradient(90deg, #F8FAFC, #E2E8F0);
+            padding: 7px 20px;
+            border-radius: 9999px;
+            font-size: 0.82rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 22px;
             color: var(--slate-900);
+            letter-spacing: 0.8px;
+            border: 2px solid var(--amber-gold);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
         }
-
-        /* Urgency Section */
+        
+        /* Urgency Section - maximum pressure */
         .why-now {
-            background: #F8FAFC;
-            padding: 100px 20px;
+            background: linear-gradient(180deg, #F8FAFC 0%, #EEF4FF 100%);
+            padding: 130px 20px 110px;
             text-align: center;
         }
-
+        
         .urgency-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 50px auto;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 45px;
+            max-width: 1150px;
+            margin: 65px auto 0;
         }
-
-        .urgency-item h4 { color: var(--crimson); font-size: 1.3rem; margin-bottom: 10px; }
-        .urgency-item p { font-size: 0.95rem; color: var(--slate-600); }
-
-        /* Footer */
+        
+        .urgency-item {
+            background: white;
+            padding: 42px 35px;
+            border-radius: 20px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.07);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+        
+        .urgency-item:hover {
+            border-color: var(--crimson);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 45px rgba(185, 28, 28, 0.15);
+        }
+        
+        .urgency-item h4 { 
+            color: var(--crimson); 
+            font-size: 1.45rem; 
+            margin-bottom: 14px; 
+        }
+        
+        .urgency-item p { 
+            font-size: 1.02rem; 
+            color: #475569; 
+            line-height: 1.65;
+        }
+        
+        /* Footer - clean authority */
         .footer {
             background: var(--oxford-blue);
             color: #94A3B8;
-            padding: 80px 20px 40px;
-            font-size: 0.9rem;
+            padding: 110px 20px 55px;
+            font-size: 0.95rem;
         }
-
+        
+        .footer h3, .footer h4 {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* WhatsApp floating button - aggressive visibility */
+        a[href*="wa.me"] {
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: #25D366; 
+            color: white; 
+            width: 68px; 
+            height: 68px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 32px; 
+            text-decoration: none; 
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+            z-index: 2000;
+            animation: float 2.8s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        a[href*="wa.me"]:hover {
+            transform: scale(1.12) rotate(12deg);
+            box-shadow: 0 18px 45px rgba(37, 211, 102, 0.7);
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .cta-main { width: 100%; box-sizing: border-box; text-align: center; }
+            .hero h1 { font-size: clamp(2.4rem, 9vw, 3.4rem); }
+            .cta-main { 
+                width: 100%; 
+                box-sizing: border-box; 
+                text-align: center; 
+                padding: 24px 40px;
+            }
+            .grid { gap: 32px; }
+            .feature-card { padding: 40px 30px; }
+            .urgency-grid { gap: 30px; }
+        }
+        
+        @media (max-width: 480px) {
+            .urgency-ribbon { font-size: 0.85rem; padding: 12px 15px; }
         }
     </style>
 </head>
 <body>
-
     <div class="urgency-ribbon">
         ⚠️ AVISO LEGAL: La normativa 2026 es estricta. Errores en la fecha de entrada (limite 01/01/2026) causan denegación inmediata.
     </div>
-
     <main>
         <section class="hero">
             <div class="container" style="padding: 0;">
                 <span style="color: var(--amber-gold); font-weight: 700; letter-spacing: 2px;">ESPAÑA 2026</span>
                 <h1>Tu Residencia No Es Un Juego</h1>
                 <p>El colapso administrativo de junio es una realidad. Quienes no presenten expedientes técnicamente perfectos se enfrentan a años de irregularidad. Valida tu caso hoy mismo.</p>
-                
+               
                 <a href="/arraigo-likelihood-engine.html" class="cta-main">Iniciar Validador de Viabilidad (500€)</a>
-                
+               
                 <p style="margin-top: 25px; font-size: 0.9rem; opacity: 0.6;">Análisis por abogados colegiados • Respuesta técnica inmediata</p>
             </div>
         </section>
-
         <section class="container">
             <div style="text-align: center; margin-bottom: 60px;">
                 <h2 style="font-size: 2.5rem;">Guía Técnica de Regularización</h2>
                 <p style="color: #64748B;">No todos los perfiles son aptos. Verifique sus requisitos mínimos.</p>
             </div>
-
             <div class="grid">
                 <article class="feature-card">
                     <span class="legal-tag">ARRAIGO EXTRAORDINARIO</span>
@@ -186,7 +367,6 @@
                     </ul>
                     <p style="font-size: 0.85rem; color: var(--crimson); font-weight: 600;">* El tratamiento es más favorable para menores, pero la convivencia debe ser probada.</p>
                 </article>
-
                 <article class="feature-card">
                     <span class="legal-tag">SOLICITANTES DE ASILO</span>
                     <h3>Arraigo por Asilo</h3>
@@ -201,7 +381,6 @@
                 </article>
             </div>
         </section>
-
         <section class="why-now">
             <div class="container" style="padding: 0;">
                 <h2 style="font-size: 2rem;">¿Por qué es vital actuar ahora?</h2>
@@ -223,7 +402,6 @@
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <div class="container" style="padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px;">
             <div>
@@ -243,8 +421,10 @@
             <p>© 2026 Regularízate Digital. Todos los derechos reservados. | <a href="#" style="color: var(--amber-gold); text-decoration: none;">Aviso Legal</a></p>
         </div>
     </footer>
-
-    <a href="https://wa.me/34682050945?text=Hola,%20necesito%20validar%20mi%20caso%20para%20la%20ley%202026" 
+    <a href="https://wa.me/34682050945?text=Hola,%20necesito%20validar%20mi%20caso%20para%20la%20ley%202026"
        target="_blank"
        style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 2000;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588"></path></svg>
+    </a>
+</body>
+</html>
