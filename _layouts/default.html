@@ -3,186 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#2563eb">
-    <meta name="language" content="Spanish">
+    <title>Regularízate Digital | Expertos en Ley de Extranjería 2026</title>
     
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }} | Regularización en España{% endif %}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="keywords" content="{{ site.keywords }}">
-    <meta name="author" content="{{ site.author }}">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:image" content="{{ site.url }}/assets/og-image.jpg">
-    <meta property="og:locale" content="es_ES">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
-    <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    <meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
-    
-    <!-- Preconnect to external resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Fonts with optimal loading strategy -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='700' fill='%232563eb'>R</text></svg>">
-    
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Regularízate Digital",
-      "url": "{{ site.url }}",
-      "logo": "{{ site.url }}/assets/logo.png",
-      "description": "{{ site.description }}",
-      "contact": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "email": "{{ site.email }}",
-        "availableLanguage": ["es", "en"]
-      },
-      "sameAs": [
-        "https://www.instagram.com/regularizate"
-      ]
-    }
-    </script>
-    
-    <!-- Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Regularízate Digital",
-      "description": "Servicios de regularización en España",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "ES"
-      },
-      "priceRange": "€€",
-      "areaServed": "ES",
-      "serviceType": ["Arraigo Social", "Arraigo por Formación", "Asilo Humanitario"]
-    }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50%;
+        :root {
+            --oxford-blue: #0F172A;
+            --amber-gold: #D97706;
+            --slate-600: #475569;
+            --slate-900: #0F172A;
+            --white: #FFFFFF;
+            --bg-light: #F8FAFC;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--oxford-blue);
+            margin: 0;
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Urgency Banner */
+        .top-banner {
+            background: #B91C1C;
+            color: white;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { max-width: 700px; margin: 0 auto 30px; font-size: 1.25rem; color: #CBD5E1; }
+
+        /* Main CTA */
+        .btn-validator {
+            background: var(--amber-gold);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
         }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+
+        .btn-validator:hover {
+            transform: translateY(-2px);
+            background: #B45309;
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
         }
-        
-        .whatsapp-float:focus {
-            outline: 2px solid #25d366;
-            outline-offset: 2px;
+
+        /* Content Sections */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--oxford-blue); margin-bottom: 10px; }
+        .section-title .underline { width: 80px; height: 4px; background: var(--amber-gold); margin: 0 auto; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--oxford-blue);
         }
-        
-        @media (max-width: 640px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 24px;
-            }
+
+        .card h3 { color: var(--amber-gold); font-size: 1.5rem; margin-top: 0; }
+        .card ul { padding-left: 20px; margin-bottom: 20px; }
+        .card li { margin-bottom: 12px; font-size: 0.95rem; }
+
+        .important-note {
+            background: #FEF3C7;
+            padding: 15px;
+            border-left: 4px solid var(--amber-gold);
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* Urgency Block */
+        .urgency-block {
+            background: #F1F5F9;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+            border: 2px dashed #CBD5E1;
+        }
+
+        .urgency-block h2 { color: #B91C1C; }
+
+        /* Footer */
+        .site-footer { background: var(--oxford-blue); color: #94A3B8; padding: 60px 20px; font-size: 0.9rem; }
+        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-bottom { text-align: center; border-top: 1px solid #1E293B; margin-top: 40px; padding-top: 30px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" style="position: absolute; top: -9999px; left: -9999px; z-index: 999; padding: 8px 16px; background: var(--brand-blue); color: white; border-radius: 4px; text-decoration: none; font-weight: 600;">Ir al contenido principal</a>
 
-    <main id="main-content">
-        {{ content }}
-    </main>
+    <div class="top-banner">
+        🚨 ATENCIÓN: Solo quienes acrediten estancia antes del 01/01/2026 podrán optar al Arraigo Extraordinario. El tiempo se agota.
+    </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+    <header class="hero">
         <div class="container">
-            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                <div>
-                    <h3 style="font-size: 1.2rem; color: var(--brand-blue); margin-bottom: 1rem; font-family: 'Oswald', sans-serif;">Regularízate Digital</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
-                        Plataforma especializada en regularización de extranjeros en España. Arraigo, Formación, Asilo. ✓ 100% Digital | ✓ Sin Cita Previa
-                    </p>
+            <h1>Ley de Extranjería 2026:<br>No dejes tu futuro al azar</h1>
+            <p>El nuevo Reglamento es el más restrictivo de la última década. La diferencia entre la residencia y la expulsión reside en la perfección técnica de tu expediente.</p>
+            <a href="#validador" class="btn-validator">INICIAR VALIDADOR DE VIABILIDAD</a>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #94A3B8;">✓ Respuesta inmediata sobre tu perfil legal</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Vías de Regularización 2026</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="grid">
+            <article class="card">
+                <h3>Madre e Hijo: Arraigo Extraordinario</h3>
+                <p>Protección especial para unidades familiares con hijos menores.</p>
+                <ul>
+                    <li><strong>Solicitante Principal:</strong> Pasaporte completo, antecedentes penales y 5 meses de permanencia continua.</li>
+                    <li><strong>Requisito Crítico:</strong> Documentar vulnerabilidad social, oferta de trabajo o convivencia efectiva.</li>
+                    <li><strong>Hijos:</strong> Certificado de nacimiento y pruebas de vida en España (colegio/médico).</li>
+                </ul>
+                <div class="important-note">
+                    <strong>IMPORTANTE:</strong> Ambos deben estar en España antes del 1 de enero de 2026. Los menores gozan de un tratamiento favorable, pero la convivencia debe ser acreditada sin fisuras.
                 </div>
-                <div>
-                    <h4 style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem; font-weight: 700;">Servicios</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#arraigo-social" style="font-size: 0.9rem; color: var(--brand-blue);">Arraigo Social</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#arraigo-formacion" style="font-size: 0.9rem; color: var(--brand-blue);">Arraigo Formación</a></li>
-                        <li><a href="#asilo" style="font-size: 0.9rem; color: var(--brand-blue);">Asilo Humanitario</a></li>
-                    </ul>
+            </article>
+
+            <article class="card">
+                <h3>Solicitantes de Asilo</h3>
+                <p>Vía específica para personas con protección internacional en trámite o recurso.</p>
+                <ul>
+                    <li><strong>Condición Base:</strong> Haber solicitado asilo antes del 01/01/2026.</li>
+                    <li><strong>Permanencia:</strong> Mínimo de 5 meses demostrables de forma continuada.</li>
+                    <li><strong>Antecedentes:</strong> Cero tolerancia penal o policial.</li>
+                </ul>
+                <div class="important-note">
+                    <strong>IMPORTANTE:</strong> Esta vía permite trabajar desde la solicitud, pero exige el desistimiento formal del asilo tras la concesión de la residencia.
                 </div>
-                <div>
-                    <h4 style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem; font-weight: 700;">Contacto</h4>
-                    <p style="font-size: 0.9rem; margin: 0.5rem 0;">
-                        <strong>Email:</strong> <a href="mailto:{{ site.email }}" style="color: var(--brand-blue);">{{ site.email }}</a>
-                    </p>
-                    <p style="font-size: 0.9rem; margin: 0.5rem 0;">
-                        <strong>Horario:</strong> Lunes-Viernes<br>09:00-18:00 (Zona horaria España)
-                    </p>
-                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" style="background: white; border-radius: 20px;">
+        <div class="section-title">
+            <h2>¿Por qué debes moverte hoy?</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="grid">
+            <div style="text-align: center; padding: 20px;">
+                <h4 style="font-size: 1.5rem; color: var(--amber-gold);">Colapso Administrativo</h4>
+                <p>Se espera que en junio las citas en Correos y Extranjería se agoten totalmente. Quien no presente su expediente en el primer trimestre de 2026 quedará en el limbo legal.</p>
             </div>
-            
-            <hr style="border: none; border-top: 1px solid var(--border-light); margin: 2rem 0;">
-            
-            <div style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
-                <p style="margin: 0.5rem 0;">
-                    © 2026 Regularízate Digital. Todos los derechos reservados. | 
-                    <a href="#privacidad" style="color: var(--brand-blue); text-decoration: none;">Privacidad</a> | 
-                    <a href="#terminos" style="color: var(--brand-blue); text-decoration: none;">Términos</a> |
-                    <a href="#cookies" style="color: var(--brand-blue); text-decoration: none;">Cookies</a>
-                </p>
-                <p style="margin: 0.5rem 0; font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">
-                    <strong>⚖️ Aviso Legal:</strong> Regularízate Digital está compuesto por abogados colegiados especializados en inmigración. Consulta legal confidencial y protegida por secreto profesional.
-                </p>
+            <div style="text-align: center; padding: 20px;">
+                <h4 style="font-size: 1.5rem; color: var(--amber-gold);">Cero Tolerancia</h4>
+                <p>Cualquier error en la tasa o en la vigencia de los penales resultará en una denegación sin posibilidad de subsanación rápida. No hay margen para el error.</p>
             </div>
+            <div style="text-align: center; padding: 20px;">
+                <h4 style="font-size: 1.5rem; color: var(--amber-gold);">Coste de Oportunidad</h4>
+                <p>Nuestra tarifa de gestión profesional es de <strong>500€</strong>. Es una inversión mínima frente al riesgo de perder el derecho a trabajar y residir legalmente en España.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="validador">
+        <div class="urgency-block">
+            <h2>No pierdas tu oportunidad</h2>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 20px auto;">Utiliza nuestra herramienta técnica para saber si cumples los requisitos de la Ley 2026 antes de contratar el servicio.</p>
+            <a href="/validador" class="btn-validator" style="background: var(--oxford-blue);">VERIFICAR MI CASO AHORA</a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h4 style="color: white;">Regularízate Digital</h4>
+                <p>Plataforma técnica especializada en la regularización de extranjeros bajo el nuevo marco legal 2026. Especialistas en Arraigo y Asilo.</p>
+            </div>
+            <div>
+                <h4 style="color: white;">Servicios</h4>
+                <p>• Arraigo Extraordinario<br>• Solicitantes de Asilo<br>• Unidad Familiar<br>• Consultoría Técnica</p>
+            </div>
+            <div>
+                <h4 style="color: white;">Legal</h4>
+                <p>Asesoramiento por abogados colegiados. Gestión 100% telemática con certificado digital propio para máxima rapidez.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Regularízate Digital. Todos los derechos reservados. <br>
+            <small style="color: #475569;">Aviso: La información aquí contenida no constituye una relación abogado-cliente hasta la contratación formal del servicio.</small></p>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/34682050945?text=Hola%20Regularizate.digital,%20quiero%20validar%20mi%20caso%20de%20regularizaci%C3%B3n" 
+    <a href="https://wa.me/34682050945?text=Hola,%20necesito%20validar%20mi%20caso%20para%20la%20ley%202026" 
        class="whatsapp-float" 
        target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp - abre en ventana nueva"
-       title="Contactar con nosotros por WhatsApp">
-        <svg width="35" height="35" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+       style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000;">
+       <svg width="35" height="35" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
 </body>
